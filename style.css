@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+input, label {
+  display:block;
+}
+.form{
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+thead{
+  color: grey;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+img{
+  cursor: pointer;
+}
+tr{
+  margin-top: 20px;
+}
+button{
+  background-color: blue;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+input{
+  width: 300px;
+  height: 30px;
+}
+table{
+  max-width: 70%;
+}
+td{
+  margin: 15px;
+  font-size: 20px;
+}
+.icons{
+  display: flex;
+  gap: 10px;
+}

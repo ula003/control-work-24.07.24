@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <h1>Добавление, Изменение и Удаление Элемента из Таблицы</h1>
+    <form name="add" class="form">
+      <section>
+      <div style="float:left;margin-right:20px;">
+        <label for="name">Name</label>
+        <input id="name" type="text" value="" name="name">
+      </div>    
+      <div style="float:left;">
+        <label for="age">Age</label>
+        <input id="age" type="text" value="" name="age">
+      </div>
+      <br style="clear:both;" />
+      </section>
+      <section>
+        <button>Показать</button>
+      </section>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>№</td>
+          <td>Имя студента</td>
+          <td>Год рождения</td>
+          <td>Действия</td>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+       
+      </tbody>
+    </table>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
