@@ -26,7 +26,7 @@ function reload(data) {
   tbody.innerHTML = rows;
   
   deleter();
-  editor(); // Reattach event listeners to edit buttons
+  editor();
 }
 
 function deleter() {
@@ -79,7 +79,7 @@ function editor() {
       let data = userDetails.data;
 
       document.querySelector('.modalName').value = data.name;
-      document.querySelector('.modalAge').value = 2024 - data.age; // Pre-fill modal inputs
+      document.querySelector('.modalAge').value = 2024 - data.age;
       
       // Attach submit event listener
       let addingModal = document.forms.adding;
