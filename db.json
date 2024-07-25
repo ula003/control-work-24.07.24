@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": "id3907ffaacf7f",
+      "name": "Nabiev",
+      "age": 26
+    }
+  ]
 }

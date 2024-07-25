@@ -26,11 +26,12 @@ function reload(data) {
   tbody.innerHTML = rows;
   
   deleter();
+  editor(); // Reattach event listeners to edit buttons
 }
 
 function deleter() {
-  let editBtn = document.querySelectorAll('.delete');
-  for (let item of editBtn) {
+  let deleteBtn = document.querySelectorAll('.delete');
+  for (let item of deleteBtn) {
     item.onclick = async (e) => {
       e.preventDefault();
 
@@ -60,3 +61,52 @@ addTask.onsubmit = async (e) => {
   let updatedTaskList = await axios.get(URL);
   reload(updatedTaskList);
 };
+
+function editor() {
+  let editBtn2 = document.querySelectorAll('.edit');
+  let modal = document.querySelector('.modal');
+  let elemId = [];
+  
+  for (let item of editBtn2) {
+    item.onclick = async (e) => {
+      e.preventDefault();
+      modal.style.display = 'flex';
+
+      let parentId = item.parentNode.id;
+      elemId.push(parentId);
+      
+      let userDetails = await axios.get(`${URL}/${parentId}`);
+      let data = userDetails.data;
+
+      document.querySelector('.modalName').value = data.name;
+      document.querySelector('.modalAge').value = 2024 - data.age; // Pre-fill modal inputs
+      
+      // Attach submit event listener
+      let addingModal = document.forms.adding;
+      addingModal.onsubmit = async (e) => {
+        e.preventDefault();
+        let user = {};
+        let fm = new FormData(addingModal);
+        fm.forEach((value, key) => {
+          user[key] = value;
+        });
+        
+        data.name = user.name;
+        data.age = 2024 - user.age;
+        
+        await axios.patch(`${URL}/${parentId}`, data);
+        let updatedTaskList = await axios.get(URL);
+        reload(updatedTaskList);
+        modal.style.display = 'none';
+        elemId = []; // Reset elemId array
+      };
+    };
+  }
+}
+
+let close = document.querySelector('.close');
+close.onclick = () => {
+  document.querySelector('.modal').style.display = 'none';
+};
+
+editor();
